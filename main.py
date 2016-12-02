@@ -1,5 +1,6 @@
 import speech_recognition as sr
 import oscommands
+import sys
 # obtain audio from the microphone
 
 
@@ -18,10 +19,13 @@ def main():
         # instead of `r.recognize_google(audio)`
         translated = r.recognize_google(audio).lower()
         if "jarvis" in translated:
-            print("Hello Father")
 
-            if 'terminal' in translated:
+            if 'terminal' and 'open'  in translated:
                 oscommands.open_terminal()
+
+            if 'system' and 'exit' in translated:
+                print("Farewell Farther")
+                sys.exit(1)
 
         print("Google Speech Recognition thinks you said " + translated)
     except sr.UnknownValueError:
@@ -29,4 +33,6 @@ def main():
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
-main()
+
+while 1 == 1:
+    main()

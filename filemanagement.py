@@ -1,8 +1,12 @@
+import os
+import shutil
 
 
 # find file will open in file explorer
-def find():
+def find(name):
     # use explorer .
+    os.p
+
     pass
 
 
